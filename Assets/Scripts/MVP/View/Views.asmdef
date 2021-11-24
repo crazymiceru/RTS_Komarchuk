@@ -1,11 +1,8 @@
 {
-    "name": "Presenters",
+    "name": "Views",
     "rootNamespace": "",
     "references": [
-        "GUID:e88c96c025f9e13499039c90e4fe32a8",
-        "GUID:7c88e50138030434abd5fa572f05dcbe",
-        "GUID:c409d3000c7af3f4d8bf9849ac6b0130",
-        "GUID:3f9757f16823a39488a62934460eedc3"
+        "GUID:c409d3000c7af3f4d8bf9849ac6b0130"
     ],
     "includePlatforms": [],
     "excludePlatforms": [],
