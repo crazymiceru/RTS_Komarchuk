@@ -2859,8 +2859,8 @@ GameObject:
   - component: {fileID: 6875648225359870440}
   - component: {fileID: 6875648225366791690}
   - component: {fileID: 795049065712347637}
-  - component: {fileID: 591158904342715765}
   - component: {fileID: 675175854}
+  - component: {fileID: 9200220070413037900}
   m_Layer: 0
   m_Name: Chomper
   m_TagString: Untagged
@@ -2916,7 +2916,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8754fe2f9503d6d45ae36bb2e7c925dd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &591158904342715765
+--- !u!54 &675175854
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6875648225359504840}
+  serializedVersion: 2
+  m_Mass: 10
+  m_Drag: 0.1
+  m_AngularDrag: 0.05
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 80
+  m_CollisionDetection: 0
+--- !u!114 &9200220070413037900
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -2925,7 +2941,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 6875648225359504840}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c3dac5085249af8418509363827cfaf5, type: 3}
+  m_Script: {fileID: 11500000, guid: 4fd30d5ca769f7d42875f55ced83a528, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _hp: 5
@@ -2936,23 +2952,10 @@ MonoBehaviour:
   _selectModel: {fileID: 11400000, guid: 87a2dea7c2eb6574c9e0486ce8cb243d, type: 2}
   _defaultMaterial: {fileID: 2100000, guid: dad26cc8af5eca141b973d06942e6efb, type: 2}
   _selectMaterial: {fileID: 2100000, guid: 67d38ed7cf357324f8d99d484546ee35, type: 2}
-  _isSelect: 0
---- !u!54 &675175854
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6875648225359504840}
-  serializedVersion: 2
-  m_Mass: 10
-  m_Drag: 0
-  m_AngularDrag: 0.05
-  m_UseGravity: 1
-  m_IsKinematic: 0
-  m_Interpolate: 0
-  m_Constraints: 80
-  m_CollisionDetection: 0
+  _commandButtonView: {fileID: 0}
+  _powerMove: 300
+  _maxSpeed: 2
+  _minDistEndMove: 2
 --- !u!1 &6875648225359504842
 GameObject:
   m_ObjectHideFlags: 0

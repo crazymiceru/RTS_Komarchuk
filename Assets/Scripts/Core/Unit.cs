@@ -16,9 +16,10 @@ public class Unit : MonoBehaviour, IUnit, ISelectable
     [SerializeField] private SelectModel _selectModel;
     [SerializeField] private Material _defaultMaterial;
     [SerializeField] private Material _selectMaterial;
+    [SerializeField] protected CommandButtonView _commandButtonView;
 
     public bool IsSelect => _isSelect;
-    [SerializeField] private bool _isSelect;
+    private bool _isSelect;
 
     protected InfoPanelBasic _infoPanel;
 
@@ -32,11 +33,12 @@ public class Unit : MonoBehaviour, IUnit, ISelectable
             _infoPanel = infoPanel;
             infoPanel.Init(_positionPanel, this);
         }
-        
+
         _selectModel.evtSelect += Select;
         _selectModel.evtDeSelectAll += Deselect;
 
         _meshRenderers = GetComponentsInChildren<Renderer>();
+        if (_commandButtonView == null) _commandButtonView = Reference.inst.CommandButtonView;
         UpdateInfo();
     }
 
@@ -46,7 +48,7 @@ public class Unit : MonoBehaviour, IUnit, ISelectable
         {
             _infoPanel.gameObject.SetActive(_isSelect);
             _infoPanel.UpdateElements();
-            if (_defaultMaterial!=null && _selectMaterial!=null)
+            if (_defaultMaterial != null && _selectMaterial != null)
             {
                 foreach (var item in _meshRenderers) item.material = _isSelect ? _selectMaterial : _defaultMaterial;
             }
@@ -55,23 +57,33 @@ public class Unit : MonoBehaviour, IUnit, ISelectable
 
     public void Select(ISelectable selectable)
     {
+        var oldIsSelect = _isSelect;
         if (selectable == (ISelectable)this)
         {
             if (!IsGroupSelectable && !_isSelect) _selectModel.DeselectAll();
             _isSelect = !_isSelect;
             UpdateInfo();
+
         }
         else if (!IsGroupSelectable)
-        {            
+        {
             _isSelect = false;
             UpdateInfo();
         }
+        if (oldIsSelect != _isSelect) DoSelect();
+    }
+
+    public virtual void DoSelect()
+    {
+
     }
 
     public void Deselect()
     {
+        var oldIsSelect = _isSelect;
         _isSelect = false;
         UpdateInfo();
+        if (oldIsSelect != _isSelect) DoSelect();
     }
 
     protected virtual void OnDestroy()

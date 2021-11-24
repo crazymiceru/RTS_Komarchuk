@@ -11,6 +11,10 @@ public class Reference : MonoBehaviour
     public Transform FolderInfo => _folderInfo;
     [SerializeField] private Transform _folderInfo;
 
+
+    public CommandButtonView CommandButtonView => _commandButtonView;
+    [SerializeField] private CommandButtonView _commandButtonView;
+
     public Camera MainCamera => _mainCamera;
     private Camera _mainCamera;
 
